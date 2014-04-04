@@ -1,0 +1,27 @@
+#LoginDialog{
+
+}
+#LoginDialog p{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+#LoginDialog .intro{
+    width: 90%;
+    margin: 20px 5% 10px 5%;
+}
+#LoginDialog input[type="text"],
+#LoginDialog input[type="password"]{
+    width: 90%;
+    margin: 0 5% 10px 5%;
+    font-size: 11pt;
+}
+#LoginDialog .submit{
+    text-align: center;
+}
+#LoginDialog input[type="submit"]{
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+}

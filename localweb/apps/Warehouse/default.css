@@ -1,0 +1,116 @@
+.icon-warehouse{
+    background-image: url('/apps/Warehouse/img/icon32.png');
+}
+
+.WarehouseApp .main-icons{
+    float: left;
+    width: 128px;
+    height: 150px;
+    padding: 5px;
+    text-align: center;
+    text-shadow: 1px 1px 5px #000;
+}
+
+.WarehouseApp .main-icons:hover{
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.ribbon-icon{
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    float: left;
+}
+
+.ribbon-icon a{
+    text-shadow: 1px 1px 1px #fff;
+    position: relative;
+    top: 45px;
+}
+
+.ribbon-icon-input{
+    background: url('/apps/Warehouse/img/32/input.png') no-repeat center center;
+}
+.ribbon-icon-output{
+    background: url('/apps/Warehouse/img/32/output.png') no-repeat center center;
+}
+.ribbon-icon-product-list{
+    background: url('/apps/Warehouse/img/32/product-list.png') no-repeat center center;
+}
+.ribbon-icon-product-add{
+    background: url('/apps/Warehouse/img/32/add-product.png') no-repeat center center;
+}
+.ribbon-icon-warehouse{
+    background: url('/apps/Warehouse/img/32/warehouse.png') no-repeat center center;
+}
+
+/* FORMS */
+fieldset {
+    border-width: 0;
+}
+
+fieldset legend{
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.row{
+    width: 100%;
+    clear: both;
+
+}
+
+fieldset label{
+    width: 100%;
+    display: block;
+    clear: both;
+    font-size: 12pt;
+    padding: 5px 0;
+}
+
+/**
+ * Table Style
+ */
+.WarehouseApp table, .WarehouseApp th, .WarehouseApp td
+{
+    border: 1px solid black;
+    font-size: 8pt;
+}
+
+.WarehouseApp table
+{
+    border-collapse:collapse;
+    width: 98%;
+    margin: 5px 1%;
+}
+
+.WarehouseApp td
+{
+    height:20px;
+    text-align:right;
+    padding: 2px;
+}
+
+.WarehouseApp th
+{
+    background-color: #ccc;
+    text-align: center;
+    font-weight: 100;
+}
+
+.WarehouseApp .units{
+    height: 40px;
+    font-size: 35px;
+    width: 98%;
+    text-align: right;
+    color: #004444;
+}
+
+.WarehouseApp .code{
+    height: 40px;
+    font-size: 35px;
+    width: 98%;
+    text-align: right;
+    color: #004444;
+}

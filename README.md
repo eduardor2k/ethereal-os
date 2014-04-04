@@ -1,4 +1,4 @@
-ethereal-os
+EtherealOs
 ===========
 
 Web based operating system

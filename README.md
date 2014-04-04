@@ -3,4 +3,6 @@ EtherealOs
 
 Web based operating system
 
-Licence GNU GPL
+![alt tag](http://i.imgur.com/FlaGaa3.png)
+
+License GNU GPL

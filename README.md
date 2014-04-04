@@ -1,4 +1,4 @@
-EtherealOs
+EtherealOs v0.01
 ===========
 
 Web based operating system

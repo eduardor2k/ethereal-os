@@ -35,8 +35,16 @@
                     obj.username = $('#LoginDialog input[type="text"]').val();
                     obj.password = $('#LoginDialog input[type="password"]').val();
 
-                    $.post('/app/Login/logIn/',{ data: obj },function(){
-                        location.reload(true);
+                    $.post('/app/Login/logIn/',{ data: obj },function(json){
+                        var result = $.parseJSON(json)
+                        console.log(result);
+                        if(result === true)
+                        {
+                            $('#LoginDialog').html('<p>Loading Desktop</p>');
+                            location.reload(true);
+                            return;
+                        }
+                        alert(result.msg);
                     });
                     return false;
                 }

@@ -23,14 +23,23 @@ if(!$route)
     die;
 }
 
+$result = 'App not found';
 if($route->params['action'] == 'apps')
 {
     $controller = $route->params['app'];
     $method = $route->params['method'];
     $className = 'Apps\\'.$controller.'\\'.$controller;
     $app = new $className();
-    echo json_encode($app->$method($route->params['params']));
-    die;
+    try
+    {
+        $result = $app->$method($route->params['params']);
+    }
+    catch(Exception $e)
+    {
+        $result = array(
+            'status' => 'Exception',
+            'msg' => $e->getMessage()
+        );
+    }
 }
-
-echo json_encode('App not found');
+echo json_encode($result);

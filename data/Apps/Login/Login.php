@@ -8,22 +8,93 @@
  */
 namespace Apps\Login;
 define("SECURESESSION", FALSE);
+
+use R;
+
 class Login
 {
 
 
     public function __construct()
     {
-
+        // Do nothing
     }
 
+    /**
+     * LogIn method
+     *
+     * @return string
+     * @throws Exception
+     */
     public function logIn()
     {
+        $username = trim($_POST['data']['username']);
+        $password = trim($_POST['data']['password']);
+
+        if(empty($username) || empty($password))
+        {
+            throw new Exception('Username or Password empty');
+        }
+
+        $result = R::findOne( 'users', ' username = "'.$username.'"');
+        if($result == null)
+        {
+            throw new Exception('User not found');
+        }
+
+        $salt = $result->salt;
+        if($salt == '')
+        {
+            throw new Exception('Salt password empty, please contact the administrator');
+        }
+
+        $result = R::findOne( 'users', 'username = "'.$username.'" && password = "'.$this->getPasswordHash($password,$salt).'"');
+        if($result == null)
+        {
+            throw new Exception('Wrong password');
+        }
+
         session_start();
         $_SESSION['Ethereal']['loggedIn'] = true;
-        return 'LoggedIn';
+        return true;
     }
 
+    /**
+     * This function generates a password salt as a string of x (default = 128) characters
+     * in the a-zA-Z0-9!@#$%&*? range.
+     * @param $max integer The number of characters in the string
+     * @return string
+     * @author AfroSoft <info@afrosoft.tk>
+     */
+    protected function generateSalt($max = 128)
+    {
+        $characterList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*?";
+        $i = 0;
+        $salt = "";
+        while ($i < $max) {
+            $salt .= $characterList{mt_rand(0, (strlen($characterList) - 1))};
+            $i++;
+        }
+        return $salt;
+    }
+
+    /**
+     * Returns the hashed password
+     *
+     * @param string $password
+     * @param string $salt
+     * @return string
+     */
+    protected function getPasswordHash($password,$salt)
+    {
+        return hash('sha512', $password . $salt);
+    }
+
+    /**
+     * LogOut Class
+     *
+     * @return string
+     */
     public function logOut()
     {
         session_start();

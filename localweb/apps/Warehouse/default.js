@@ -114,17 +114,17 @@ function Warehouse(){
             $.post('/app/Warehouse/addProduct/',{data: obj},function(data){
                 oSelf.addProduct();
             });
+            return false;
         });
     }
 
     this.listProducts = function()
     {
-        $('.WarehouseApp').html('');
+        this.app.html('');
         this.loadMenu();
 
-        var html = '<div id="myGrid"></div>';
-
-        $('.WarehouseApp').append(html);
+        var html = $('<div></div>').attr('id','myGrid').css('height','500px');
+        this.app.append(html);
 
         var grid;
         var columns = [
@@ -134,16 +134,12 @@ function Warehouse(){
             {id: "purchase-price", name: "Purchase Price", field: "purchaseprice"},
             {id: "sale-price", name: "Sale Price", field: "saleprice"}
         ];
-
         var options = {
             enableCellNavigation: true,
             enableColumnReorder: false
         };
-
         $.getJSON('/app/Warehouse/getProducts/',function(data){
-            $('.WarehouseApp tbody').append(html);
-            console.log(data);
-            grid = new Slick.Grid("#myGrid", data, columns, options);
+            grid = new Slick.Grid(html, data, columns, options);
         });
     }
 

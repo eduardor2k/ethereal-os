@@ -24,6 +24,11 @@ class Warehouse
 
     public function addProduct($params)
     {
+        if(!isset($_POST['data']))
+        {
+            throw new \Exception('No data set');
+        }
+
         $data = $_POST['data'];
 
         $b = R::dispense( 'appwarehouseproducts' );

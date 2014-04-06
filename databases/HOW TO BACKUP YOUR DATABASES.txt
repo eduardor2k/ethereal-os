@@ -1,0 +1,14 @@
+HOW TO BACKUP YOUR DATABASES
+- open PhpMyAdmin
+- select the tab "Export"
+- select "Custom - display all possible options"
+- select the databases you want to backup (hold 'Ctrl')
+- 'Output' section : tick "Save on server in the directory savedir/"
+- 'Output' section : TIP > use the date as "File name template" (i.e. '20130430')
+- 'Output' section : untick "use this for future exports"
+- keep the other default parameters and click on "Go"
+
+If you wan to restore a backup, you just need to click on the tab 'Import', select your backup ('Browse your computer' or 'Select from the web server upload directory') and 'Go'.
+If you import a large file, select 'Partial Import'.
+
+For more information you can read this article : http://www.phpdistiller.net/backup-and-restore-myisam-innodb-databases/

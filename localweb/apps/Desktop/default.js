@@ -17,8 +17,8 @@ function Desktop()
         var html = '<div class="desktop"></div>';
         $('body').append(html);
         this.loadIcons();
-        /*$.contextMenu({
-            selector: '.desktop',
+        $.contextMenu({
+            selector: '.icon-properties',
             callback: function(key, options) {
                 var m = "clicked: " + key;
                 window.console && console.log(m) || alert(m);
@@ -32,7 +32,7 @@ function Desktop()
                 "sep1": "---------",
                 "quit": {name: "Quit", icon: "quit"}
             }
-        });*/
+        });
     }
 
     this.loadIcons = function()

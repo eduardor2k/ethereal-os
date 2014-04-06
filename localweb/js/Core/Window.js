@@ -13,7 +13,7 @@ $.widget( "ethereal.ethDialog", {
         this._createTitlebar();
 
         this.uiDialog.resizable();
-        this.uiDialog.draggable();
+        this.uiDialog.draggable({cancel: '.window_inner'});
     },
     _createContent: function() {
         this.uiDialog = $("<div></div>")

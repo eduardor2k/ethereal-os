@@ -22,7 +22,18 @@ $.widget( "ethereal.ethDialog", {
             .css('min-width',this.options.minWidth+'px')
             .css('height',this.options.height+'px')
             .css('min-height',this.options.minHeight+'px')
-            .prependTo( $('body') );
+            .prependTo( $('body'))
+            .mousedown(function(){
+                var zIndexVal = 0;
+                $('.window').each(function(){
+                    var current = $(this).css('z-index');
+                    if(current > zIndexVal)
+                    {
+                        zIndexVal = parseInt(current);
+                    }
+                });
+                $(this).css('z-index',zIndexVal+1);
+            });
 
         this.uiInnerContent = $("<div></div>")
             .addClass('window_inner')

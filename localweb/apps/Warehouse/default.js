@@ -148,7 +148,6 @@ function Warehouse(){
         this.loadMenu();
 
         var html = '<div class="container_12"><form><fieldset>\
-            <div class="grid_12"><label>Entradas</label></div>\
             <div class="grid_9"><label for="code">Código</label>\
             <input type="text" name="code" class="code" tabindex="1" placeholder="Introduce código"></div>\
             <div class="grid_3"><label for="code">Unidades</label>\
@@ -176,12 +175,12 @@ function Warehouse(){
         this.loadMenu();
 
         var html = '<div class="container_12"><form><fieldset>\
-            <div class="grid_12" style="text-align: left"><img src="/apps/Warehouse/img/barcodereader.png" /></div>\
-            <div class="grid_2"><label for="code">Unidades</label>\
-            <input type="text" name="units" class="units" tabindex="1" placeholder="0"></div>\
-            <div class="grid_7"><label for="code">Código</label>\
-            <input type="text" name="code" class="code" tabindex="2" placeholder="Introduce código"></div>\
-            <div class="grid_3"><label for="code">&nbsp;</label><button tabindex="3" class="submit">Guardar</button></div>\
+            <div class="grid_9"><label for="code">Código</label>\
+            <input type="text" name="code" class="code" tabindex="1" placeholder="Introduce código"></div>\
+            <div class="grid_3"><label for="code">Unidades</label>\
+            <input type="text" name="units" class="units" tabindex="2" placeholder="0"></div>\
+            <div class="grid_9"><img src="/apps/Warehouse/img/barcodereader.png" /></div>\
+            <div class="grid_3" style="text-align: center; padding-top: 10px"><button tabindex="3" class="submit">Guardar</button></div>\
             </fieldset></form></div>';
         $('.WarehouseApp').append(html);
 
@@ -194,7 +193,7 @@ function Warehouse(){
                 alert('submit');
             }
         });
-        $('input[name=units]',this.app).focus();
+        $('input[name=code]',this.app).focus();
     }
 }
 Warehouse.prototype = new App();

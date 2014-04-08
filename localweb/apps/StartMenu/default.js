@@ -8,15 +8,32 @@
  * @namespace Slick
  */
 
-(function ($) {
-    // register namespace
-    $.extend(true, window, {
-        "StartMenu": {
-            "Init": Init
-        }
-    });
+function StartMenu(){
 
-    function Init() {
+    this.appName = 'StartMenu';
+    this.app;
+
+    var oSelf = this;
+
+    this.Init = function(pid) {
+        this.__proto__.Init(pid);
+        /*this.app = $('<div></div>')
+            .addClass(this.getAppName())
+            .attr('id','App-'+this.getPid());
+
+        $('body').append(this.app);
+
+        var e = $('.WarehouseApp');
+        e.ethDialog({
+            title: 'Almacen',
+            width: 650,
+            minWidth: 450,
+            height: 400
+        });*/
+        this.loadMenu();
+    }
+
+    this.loadMenu = function() {
         var html = '<div id="startbar"> \
             <div id="win"> \
             <div id="menu"> \
@@ -144,16 +161,7 @@
             Login.LogOut();
         });
     }
+}
 
-    function DoLogin() {
-
-    }
-
-    function LogOut() {
-
-    }
-
-    function Register() {
-
-    }
-})(jQuery);
+StartMenu.prototype = new App();
+var StartMenu = new StartMenu();
